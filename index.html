@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070a12" />
+  <title>Play Now | Premium Gaming Experience</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#070a12;--panel:#101625;--text:#f7f8fc;--muted:#a7b0c4;--cyan:#61e7ff;--violet:#8f74ff;--line:rgba(255,255,255,.10)}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 78% 32%,rgba(97,231,255,.13),transparent 26%),radial-gradient(circle at 20% 78%,rgba(143,116,255,.12),transparent 30%);z-index:-3}
+    body:after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 88%);z-index:-2}
+    .page{min-height:100svh;display:flex;flex-direction:column;position:relative}
+    .glow{position:absolute;width:430px;height:430px;border-radius:50%;filter:blur(95px);opacity:.17;pointer-events:none}.g1{background:var(--cyan);right:-180px;top:8%}.g2{background:var(--violet);left:-220px;bottom:-130px}
+    header{width:min(1180px,calc(100% - 40px));height:90px;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:relative;z-index:10}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-weight:800;letter-spacing:.04em}.brand-mark{width:38px;height:38px;border:1px solid rgba(255,255,255,.18);border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(97,231,255,.15),rgba(143,116,255,.13));box-shadow:inset 0 0 18px rgba(255,255,255,.04)}.brand-mark:before{content:"";width:15px;height:15px;border:3px solid var(--cyan);border-left-color:var(--violet);transform:rotate(45deg);border-radius:4px}.brand span{font-size:15px}
+    .top-link{color:#dce3f2;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:9px}.top-link i{width:7px;height:7px;border-radius:50%;background:#6dffb0;box-shadow:0 0 15px #6dffb0}
+    main{width:min(1180px,calc(100% - 40px));margin:auto;flex:1;display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:60px;padding:70px 0 82px;position:relative;z-index:2}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid rgba(255,255,255,.11);border-radius:999px;color:#c6cfdf;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,255,255,.035);backdrop-filter:blur(10px);margin-bottom:25px}.eyebrow:before{content:"";width:19px;height:1px;background:linear-gradient(90deg,var(--cyan),var(--violet))}
+    h1{font-size:clamp(52px,6.4vw,92px);line-height:.94;letter-spacing:-.055em;max-width:700px}h1 .soft{display:block;color:#8f9aaf;font-weight:500}h1 .accent{background:linear-gradient(90deg,#fff 15%,#92edff 56%,#ad9bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .copy{max-width:540px;margin-top:25px;color:var(--muted);font-size:16px;line-height:1.75}.actions{display:flex;align-items:center;gap:22px;margin-top:35px}.cta{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:13px;min-width:185px;height:58px;padding:0 27px;border-radius:15px;color:#071019;text-decoration:none;font-size:13px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;background:linear-gradient(100deg,#9af2ff,#a894ff);box-shadow:0 18px 45px rgba(87,187,255,.16);transition:.25s ease}.cta:hover{transform:translateY(-3px);box-shadow:0 24px 55px rgba(87,187,255,.25)}.cta svg{width:18px}.micro{color:#758097;font-size:12px;line-height:1.55}.micro strong{display:block;color:#e9edf6;font-size:13px}
+    .visual{position:relative;min-height:500px;display:grid;place-items:center}.orbital{position:absolute;width:430px;height:430px;border:1px solid rgba(255,255,255,.09);border-radius:50%;animation:spin 24s linear infinite}.orbital:before,.orbital:after{content:"";position:absolute;border-radius:50%}.orbital:before{inset:35px;border:1px dashed rgba(97,231,255,.17)}.orbital:after{width:8px;height:8px;background:var(--cyan);top:50%;left:-4px;box-shadow:0 0 24px var(--cyan)}@keyframes spin{to{transform:rotate(360deg)}}
+    .card{width:min(390px,86vw);aspect-ratio:.83;position:relative;border:1px solid rgba(255,255,255,.14);border-radius:34px;background:linear-gradient(145deg,rgba(18,25,42,.92),rgba(7,11,20,.95));box-shadow:0 35px 90px rgba(0,0,0,.45),inset 0 1px rgba(255,255,255,.08);overflow:hidden;transform:rotate(3deg);backdrop-filter:blur(20px)}.card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 65% 20%,rgba(97,231,255,.20),transparent 28%),radial-gradient(circle at 25% 80%,rgba(143,116,255,.22),transparent 30%)}.card-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,black,transparent)}
+    .mini-top{position:absolute;top:24px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center}.mini-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8e9ab0}.signal{display:flex;gap:4px}.signal b{display:block;width:4px;border-radius:4px;background:#7ff3ff}.signal b:nth-child(1){height:7px}.signal b:nth-child(2){height:11px}.signal b:nth-child(3){height:15px}
+    .core{position:absolute;inset:0;display:grid;place-items:center}.core-ring{width:205px;height:205px;border-radius:50%;border:1px solid rgba(255,255,255,.13);display:grid;place-items:center;box-shadow:0 0 80px rgba(97,231,255,.08),inset 0 0 60px rgba(143,116,255,.06)}.core-ring:before{content:"";width:145px;height:145px;border-radius:50%;border:1px solid rgba(97,231,255,.25);box-shadow:inset 0 0 45px rgba(97,231,255,.08)}.play{position:absolute;width:68px;height:68px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#9cf3ff,#9c86ff);box-shadow:0 15px 40px rgba(86,205,255,.25)}.play:after{content:"";margin-left:5px;border-left:18px solid #071019;border-top:11px solid transparent;border-bottom:11px solid transparent}
+    .card-bottom{position:absolute;left:24px;right:24px;bottom:25px;display:flex;justify-content:space-between;align-items:end}.card-bottom small{display:block;color:#7f899c;font-size:9px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:5px}.card-bottom strong{font-size:18px;letter-spacing:-.02em}.status{padding:8px 10px;border:1px solid rgba(109,255,176,.16);border-radius:10px;color:#8fffc0;font-size:10px;background:rgba(109,255,176,.05)}
+    .float-chip{position:absolute;padding:11px 14px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(12,18,30,.82);backdrop-filter:blur(12px);font-size:10px;color:#aab4c6;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 16px 35px rgba(0,0,0,.22)}.chip1{right:-12px;top:22%}.chip2{left:-18px;bottom:20%}
+    footer{width:min(1180px,calc(100% - 40px));margin:auto;border-top:1px solid var(--line);min-height:70px;display:flex;align-items:center;justify-content:space-between;color:#687388;font-size:11px;letter-spacing:.05em}.footer-right{display:flex;gap:20px}.footer-right a{color:#7f8a9e;text-decoration:none}.footer-right a:hover{color:#fff}
+    @media(max-width:850px){header{height:74px}main{grid-template-columns:1fr;gap:30px;padding:58px 0 48px;text-align:center}.eyebrow{margin-bottom:20px}h1{margin:auto;font-size:clamp(48px,15vw,72px)}.copy{margin:22px auto 0;font-size:15px}.actions{justify-content:center}.visual{min-height:410px;order:-1}.orbital{width:340px;height:340px}.card{width:290px;border-radius:28px}.core-ring{width:160px;height:160px}.core-ring:before{width:112px;height:112px}.float-chip{display:none}footer{padding:20px 0;gap:14px;flex-direction:column;text-align:center}.footer-right{gap:14px}.top-link span{display:none}}
+    @media(max-width:520px){header,main,footer{width:min(100% - 28px,1180px)}header{height:68px}.brand span{font-size:13px}.visual{min-height:330px}.orbital{width:275px;height:275px}.card{width:235px;border-radius:23px}.mini-top{top:17px;left:17px;right:17px}.core-ring{width:128px;height:128px}.core-ring:before{width:88px;height:88px}.play{width:52px;height:52px;border-radius:17px}.play:after{border-left-width:14px;border-top-width:8px;border-bottom-width:8px}.card-bottom{left:17px;right:17px;bottom:18px}.card-bottom strong{font-size:14px}.status{font-size:8px;padding:6px 7px}main{padding-top:34px}.eyebrow{font-size:9px}h1{font-size:46px}.copy{font-size:14px}.actions{flex-direction:column;gap:15px}.cta{width:100%;height:56px}.micro{text-align:center}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="glow g1"></div><div class="glow g2"></div>
+    <header>
+      <a class="brand" href="#"><span class="brand-mark"></span><span>PLAYSPACE</span></a>
+      <a class="top-link" href="https://www.ipay9myr.store/?aff=nsads1" target="_blank" rel="noopener noreferrer"><i></i><span>Ready to play</span></a>
+    </header>
+    <main id="play">
+      <div class="content">
+        <div class="eyebrow">Premium Digital Playground</div>
+        <h1><span class="soft">Enter the</span><span class="accent">next level.</span></h1>
+        <p class="copy">A focused, fast and immersive experience built for players who want to jump straight into the action — without the clutter.</p>
+        <div class="actions">
+          <a class="cta" href="https://www.ipay9myr.store/?aff=nsads1" target="_blank" rel="noopener noreferrer" aria-label="Play now">Play Now
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="micro"><strong>Instant access</strong>No complicated navigation.</div>
+        </div>
+      </div>
+      <div class="visual" aria-hidden="true">
+        <div class="orbital"></div>
+        <div class="card">
+          <div class="card-grid"></div>
+          <div class="mini-top"><span class="mini-label">Live Interface / 01</span><span class="signal"><b></b><b></b><b></b></span></div>
+          <div class="core"><div class="core-ring"></div><div class="play"></div></div>
+          <div class="card-bottom"><div><small>Experience</small><strong>Non-Stop Action</strong></div><span class="status">● ONLINE</span></div>
+        </div>
+        <div class="float-chip chip1">Fast • Clean • Fluid</div>
+        <div class="float-chip chip2">01 / Premium Access</div>
+      </div>
+    </main>
+    <footer><span>© 2026 PLAYSPACE. All rights reserved.</span><div class="footer-right"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Support</a></div></footer>
+  </div>
+</body>
+</html>
